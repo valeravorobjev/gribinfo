@@ -43,3 +43,8 @@ Coords:
 90.0 0.75
 ....
 ```
+
+## Restriction
+
+The current version of the utility only works with a regular grid.
+In the future, support for non-regular grids such as gaussian grids will be added.
