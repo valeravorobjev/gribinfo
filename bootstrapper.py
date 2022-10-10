@@ -36,8 +36,35 @@ class Bootstrapper(object):
         with open(out, 'w') as f:
             f.write(result + points)
 
-    def message(self, path: str):
-        pass
+    def message(self, path: str, out: str = ""):
+        grib_reader = GribReader()
+
+        messages = grib_reader.get_grib_messages(path)
+
+        if len(messages) == 0:
+            return
+
+        result = f"MESSAGES output for {path}\n"
+        result += f"Reftime: {messages[0].reftime} | Predict: {messages[0].predict}\n\n"
+
+        for msg in messages:
+            result += f"Center:          {msg.center}\n"
+            result += f"Code:            {msg.code}\n"
+            result += f"Pname:           {msg.pname}\n"
+            result += f"Sname:           {msg.sname}\n"
+            result += f"Unit:            {msg.unit}\n"
+            result += f"Level type:      {msg.level_type}\n"
+            result += f"Level:           {msg.level}\n"
+            result += f"Ensemble member: {msg.ensemble_member}\n\n"
+
+        print(result)
+
+        if len(out) == 0:
+            return
+
+        print(f"File result {out} saved")
+        with open(out, 'w') as f:
+            f.write(result)
 
     def messages(self, path: str):
         pass
