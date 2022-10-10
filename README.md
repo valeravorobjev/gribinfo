@@ -8,14 +8,16 @@ Or extract the data of some parameter
 In addition to examining a single file, you can pass the path to a set 
 of files to the input to find out what parameters, dates, levels, etc. are in the set.
 
-## Get grid information
+## Grid command
+
+Get grid information
 
 ```shell
-python main.py <grib file> <out file>
+python main.py grid <in> <out>
 ```
 * **grid** - command for get grid information.
-* **grib file** - file in GRIB format. Your can set only one file, no folder path.
-* **out file** - this parameter is optional. If you do not specify it, the output will be made only to the console.
+* **in** - file in GRIB format. Your can set only one file, no folder path.
+* **out** - this parameter is optional. If you do not specify it, the output will be made only to the console.
 
 Example:
 
@@ -42,6 +44,71 @@ Coords:
 90.0 0.5
 90.0 0.75
 ....
+```
+
+## Message command
+
+Information about one GRIB file 
+
+```shell
+python main.py message <in> <out>
+```
+* **grid** - command for get information about GRIB file.
+* **int** - file in GRIB format. Your can set only one file, no folder path.
+* **out** - this parameter is optional. If you do not specify it, the output will be made only to the console.
+
+Example:
+
+```shell
+python main.py message example.grib grid.txt
+```
+
+Output:
+
+Output shortened.
+
+```text
+MESSAGES output for example.grib
+Reftime: 2022-03-21 00:00:00+00:00 | Predict: 180
+
+Center:          kwbc
+Code:            260074
+Pname:           Pressure reduced to MSL
+Sname:           prmsl
+....
+```
+
+## Messages command
+
+Information about many GRIB files. Base time, offset times, parameters, levels.
+
+```shell
+python main.py messages <in> <out>
+```
+* **messages** - command for many GRIB files.
+* **in** - path of directory with GRIB files.
+* **out** - this parameter is optional. If you do not specify it, the output will be made only to the console.
+
+Example:
+
+```shell
+python main.py messages mydir/gribs grid.txt
+```
+
+Output:
+
+Output shortened.
+
+```text
+GRIB FILES output for mydir/gribs
+
+Reftime:  2022-03-21 00:00:00+00:00
+Predicts: [180, 1320]
+Params:
+Pressure reduced to MSL                                      prmsl          260074 meanSea                                 0
+Cloud mixing ratio                                           clwmr          260019 hybrid                                  1
+Ice water mixing ratio                                       icmr           260020 hybrid                                  1
+Rain mixing ratio                                            rwmr           260021 hybrid                                  1
 ```
 
 ## Restriction

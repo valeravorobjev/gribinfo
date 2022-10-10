@@ -141,7 +141,7 @@ class GribReader:
                             pn = e.codes_get(msid, "name")
                             code = e.codes_get(msid, "paramId")
                             unit = e.codes_get(msid, "units")
-                            values = e.codes_get_double_array(msid, "values")
+                            # values = e.codes_get_double_array(msid, "values")
 
                             if center == 'kwbc':
                                 step_type_internal = e.codes_get_string(msid, 'stepTypeInternal')
@@ -173,7 +173,7 @@ class GribReader:
 
                             messages.append(
                                 common.grib.GribMessage(lt, lvl, pn, sn, code, unit, center, reftime, predict, 0,
-                                                        values))
+                                                        []))
 
                         finally:
                             if msid is not None:
