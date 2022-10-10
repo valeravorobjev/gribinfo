@@ -17,7 +17,7 @@ python main.py grid <in> <out>
 ```
 * **grid** - command for get grid information.
 * **in** - file in GRIB format. Your can set only one file, no folder path.
-* **out** - this parameter is optional. If you do not specify it, the output will be made only to the console.
+* **out** - output text file. This parameter is optional. If you do not specify it, the output will be made only to the console.
 
 Example:
 
@@ -55,12 +55,12 @@ python main.py message <in> <out>
 ```
 * **grid** - command for get information about GRIB file.
 * **int** - file in GRIB format. Your can set only one file, no folder path.
-* **out** - this parameter is optional. If you do not specify it, the output will be made only to the console.
+* **out** - output text file. This parameter is optional. If you do not specify it, the output will be made only to the console.
 
 Example:
 
 ```shell
-python main.py message example.grib grid.txt
+python main.py message example.grib result.txt
 ```
 
 Output:
@@ -87,12 +87,12 @@ python main.py messages <in> <out>
 ```
 * **messages** - command for many GRIB files.
 * **in** - path of directory with GRIB files.
-* **out** - this parameter is optional. If you do not specify it, the output will be made only to the console.
+* **out** - output text file. This parameter is optional. If you do not specify it, the output will be made only to the console.
 
 Example:
 
 ```shell
-python main.py messages mydir/gribs grid.txt
+python main.py messages mydir/gribs result.txt
 ```
 
 Output:
